@@ -1,0 +1,87 @@
+.sidebar-ctn {
+    width: 7vw;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.set-ctn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: fit-content;
+    padding: 3vh 1vw;
+    /* background-color: white; */
+    background-color: var(--sidebar-dark-backcolor);
+    border-radius: 50px;
+    margin-top: 3vh;
+}
+
+.set-ctn:first-child {
+    position: sticky;
+    top: 9vh;
+}
+
+.set-ctn:last-child {
+    position: sticky;
+    top: 40vh;
+}
+
+.set-ctn a, .set-ctn svg {
+    background-color: transparent;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.set-ctn svg:hover path{
+    fill: var(--font-yellow);
+    fill-opacity: 1;
+}
+
+.set-ctn a {
+    margin-bottom: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.set-ctn a:last-child {
+    margin-bottom: 0;
+}
+
+.is-active svg path{
+    fill: var(--font-yellow);
+    fill-opacity: 1;
+}
+
+.not-active svg path{
+    fill: none;
+    fill-opacity: 0.25;
+}
+
+.indicator-ctn {
+    position: absolute;
+    left: 2.5vw;
+    color: var(--font-yellow);
+    background-color: var(--sidebar-dark-backcolor);
+    padding: 1.5vh 1vw; 
+    border-radius: 20px;
+    opacity: 0.8;
+    animation: slide-in-from-left 0.5s forwards ease-in;
+}
+
+@keyframes slide-in-from-left {
+    from {
+        transform: translateX(-1.5vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,32 @@
+.app-ctn {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.main-ctn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.main-ctn > div.sidebar-ctn {
+  flex-basis: 7%;
+  position: sticky;
+  top: 9vh;
+  z-index: 5;
+}
+
+.app-body {
+  flex-basis: 93%;
+  width: 100%;
+  padding: 3vh 0vw 0 2vw;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+  margin-bottom: 0;
+  /* opacity: 0.95; */
+}
