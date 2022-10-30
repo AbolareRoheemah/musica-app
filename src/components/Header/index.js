@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './header.css';
 
 export default function Header() {
-    const [isMobile, setIsMobile] = useState(false)
+    const isMobile = useState(false)
   return (
     <div className='header-ctn'>
         <div className="logo-ctn">
