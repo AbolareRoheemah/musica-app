@@ -50,7 +50,7 @@ body {
     width: 100%;
     height: auto;
     min-height: 50vh;
-    background-color: var(--aqua-blue);
+    background-color: rgb(151, 123, 221);
     background-image: url('../images/musica-hero-back.png');
     background-size: cover;
     background-position: center;
@@ -182,6 +182,7 @@ body {
 
 .slide-ctn {
     margin-bottom: 6vh;
+    cursor: pointer;
 }
 
 .sliding-tile-ctn {

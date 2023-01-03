@@ -1,13 +1,17 @@
 import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
 import NewCharts from '../components/NewCharts'
 import Slide from '../components/Slide';
 
 export default function Dashboard() {
+    const [background, setBackground] = useState('#609EAF')
     const slideInfo = [
         {
             image: 'slide1.png',
             desc: 'Life in a bubble',
-            name: 'The van'
+            name: 'The van',
+            url: '../../assets/audio/luqman.mp3'
         },
         {
             image: 'slide2.png',
@@ -41,10 +45,19 @@ export default function Dashboard() {
         }
     ]
 
+    const backgroundColors = ['rgb(183, 183, 221)', 'rgb(151, 123, 221)', 'rgb(100, 46, 46)', '#609EAF']
+    const colorPicker = () => {
+        const num = Math.round(Math.random() * backgroundColors.length)
+        setBackground(backgroundColors[num])
+    }
+    useEffect(
+    () => {window.setInterval(colorPicker, 5000)}
+    )
+
   return (
     <div className='dashboard-ctn'>
         <div className="top-section-ctn">
-            <div className="hero-img-section">
+            <div className="hero-img-section" style={{backgroundColor: background}}>
                 <div className="hero-text-ctn">
                     <p className="curated">Curated playlist</p>
                     <p className="hero-text">R &amp; B Hits</p>
