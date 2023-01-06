@@ -1,11 +1,19 @@
 import React from 'react';
+import { useState } from 'react';
 import './footer.css'
 
-export default function Index() {
+export default function Index({ newImage}) {
+  // const [image, setImage] = useState(newImage || 'footer-img.png');
+  // if (newImage) {
+  //   setImage(newImage)
+  // }
+  const image = newImage || 'slide1.png'
   return (
     <div className='footer-ctn'>
        <div className="footer-avatar-ctn">
-            <img src="../../assets/images/footer-img.png" alt="" className="foot-avatar" />
+            <div className="imgery">
+            <img src={"../../assets/images/" + image} alt="" className="foot-avatar" />
+            </div>
             <div className="foot-avatar-text">
                 <p>Season in</p>
                 <p>James</p>

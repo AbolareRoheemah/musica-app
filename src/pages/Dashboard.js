@@ -4,14 +4,14 @@ import { useState } from 'react';
 import NewCharts from '../components/NewCharts'
 import Slide from '../components/Slide';
 
-export default function Dashboard() {
+export default function Dashboard({receiveFunc}) {
     const [background, setBackground] = useState('#609EAF')
     const slideInfo = [
         {
             image: 'slide1.png',
             desc: 'Life in a bubble',
             name: 'The van',
-            url: '../../assets/audio/luqman.mp3'
+            url: '../../assets/audio/naba.mp3'
         },
         {
             image: 'slide2.png',
@@ -85,7 +85,7 @@ export default function Dashboard() {
             </div>
         </div>
         <div className="bottom-section-ctn">
-            <Slide title={'New Releases.'} info={slideInfo} />
+            <Slide title={'New Releases.'} info={slideInfo} receiveFunc={receiveFunc} />
             <Slide title={'Popular in your area'} info={slideInfo} />
         </div>
     </div>

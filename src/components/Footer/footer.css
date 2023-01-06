@@ -24,10 +24,21 @@
     height: 100%;
 }
 
-.footer-avatar-ctn img{
+.footer-avatar-ctn .imgery{
+    /* height: 100%; */
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-avatar-ctn img {
     height: 100%;
-    display: inline-block;
-    margin: 2.5vh 0 0;
+    max-height: 69px;
+    width: 50px;
+    max-width: 60px;
+    margin: 0vh 0.5vw 0 0;
 }
 
 .foot-avatar-text p:first-child{
