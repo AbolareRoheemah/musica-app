@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './footer.css'
 
 export default function Index({ newImage}) {
@@ -8,8 +9,11 @@ export default function Index({ newImage}) {
   //   setImage(newImage)
   // }
   const image = newImage || 'slide1.png'
+  const prevTrack = useSelector(state => state.tracks.details.name)
   return (
-    <div className='footer-ctn'>
+    <>
+    { prevTrack !== undefined &&
+      <div className='footer-ctn'>
        <div className="footer-avatar-ctn">
             <div className="imgery">
             <img src={"../../assets/images/" + image} alt="" className="foot-avatar" />
@@ -36,5 +40,7 @@ export default function Index({ newImage}) {
             <img src="../../assets/images/vol-indicator.svg" alt="" />
         </div>
     </div>
+  }
+  </>
   )
 }

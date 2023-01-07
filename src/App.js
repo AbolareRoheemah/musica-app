@@ -11,14 +11,16 @@ import Header from './components/Header'
 import Sidebar from './components/Sidebar/Index'
 import Footer from './components/Footer/Index'
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function App() {
   const [hold, setHold] = useState('');
-  const [img, setImg] = useState('');
-  const receiveFunc = (data) => {
-    setHold(data)
-    setImg(data.image)
-  }
+  // const [img, setImg] = useState('');
+  const footerDetails = useSelector(state => state.tracks.details)
+  // const receiveFunc = (data) => {
+  //   setHold(data)
+  //   setImg(data.image)
+  // }
   return (
     <div className='app-ctn'>
       <Header />
@@ -28,7 +30,7 @@ function App() {
         </div>
         <div className='app-body'>
           <Routes>
-            <Route exact={true} path='/' element={ <Dashboard receiveFunc={receiveFunc} /> } />
+            <Route exact={true} path='/' element={ <Dashboard /> } />
             <Route path='/playlists' element={ <Playlists /> } />
             <Route path='/profile' element={ <Profile /> } />
             <Route path='/radio' element={ <Radio /> } />
@@ -38,7 +40,7 @@ function App() {
           </Routes>
         </div>
       </div>
-      <div className="footer"><Footer newImage={img}/></div>
+      <div className="footer"><Footer newImage={footerDetails.image}/></div>
     </div>
   );
 }

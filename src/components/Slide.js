@@ -1,9 +1,12 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setDetails } from '../features/tracks/trackSlice'
 
-export default function Slide({title, info, receiveFunc}) {
+export default function Slide({title, info}) {
+    const dispatch = useDispatch()
     const play = (data) => {
         new Audio(data.url).play()
-        receiveFunc(data)
+        dispatch(setDetails(data))
     }
   return (
     <div className="slide-ctn">

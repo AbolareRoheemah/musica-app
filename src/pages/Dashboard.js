@@ -1,49 +1,12 @@
 import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import NewCharts from '../components/NewCharts'
 import Slide from '../components/Slide';
 
 export default function Dashboard({receiveFunc}) {
     const [background, setBackground] = useState('#609EAF')
-    const slideInfo = [
-        {
-            image: 'slide1.png',
-            desc: 'Life in a bubble',
-            name: 'The van',
-            url: '../../assets/audio/naba.mp3'
-        },
-        {
-            image: 'slide2.png',
-            desc: 'Mountain',
-            name: 'Krisk'
-        },
-        {
-            image: 'slide3.png',
-            desc: 'Limits',
-            name: 'John Dillion'
-        },
-        {
-            image: 'slide4.png',
-            desc: 'Everything\'s black',
-            name: 'Ahmeed'
-        },
-        {
-            image: 'slide5.png',
-            desc: 'Cancelled',
-            name: 'Eminem'
-        },
-        {
-            image: 'slide6.png',
-            desc: 'Nomad',
-            name: 'Makrat eli'
-        },
-        {
-            image: 'slide1.png',
-            desc: 'Blind',
-            name: 'Wiz Khalifa'
-        }
-    ]
+    const slideInfo = useSelector(state => state.tracks.songs)
 
     const backgroundColors = ['rgb(183, 183, 221)', 'rgb(151, 123, 221)', 'rgb(100, 46, 46)', '#609EAF']
     const colorPicker = () => {
