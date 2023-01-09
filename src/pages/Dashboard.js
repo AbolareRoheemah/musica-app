@@ -34,7 +34,7 @@ export default function Dashboard({receiveFunc}) {
                         <img src="../../assets/images/avatar4.png" alt="" className="avatar" />
                         <img src="../../assets/images/avatar5.png" alt="" className="avatar" />
                     </div>
-                    <span class="material-icons-outlined">favorite</span>
+                    <span className="material-icons-outlined">favorite</span>
                     <p>33k Likes</p>
                 </div>
             </div>

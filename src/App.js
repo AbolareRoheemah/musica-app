@@ -30,7 +30,7 @@ function App() {
         </div>
         <div className='app-body'>
           <Routes>
-            <Route exact={true} path='/' element={ <Dashboard /> } />
+            <Route path='/' element={ <Dashboard /> } />
             <Route path='/playlists' element={ <Playlists /> } />
             <Route path='/profile' element={ <Profile /> } />
             <Route path='/radio' element={ <Radio /> } />

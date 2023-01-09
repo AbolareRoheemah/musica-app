@@ -6,7 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 9vw;
+    padding: 1vh 9vw;
     /* backdrop-filter: drop-shadow(0px -25px 100px rgba(16, 16, 16, 0.51)); */
     border-top: 1.5px solid rgba(89, 86, 86, 0.51);
     /* opacity: 0.95; */
@@ -60,4 +60,21 @@
     flex-basis: 30%;
     width: 30%;
     margin: 0 auto;
+}
+
+.play-btn {
+    background-color: #FACD66;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pause-btn {
+    /* width: 8.33px;
+    height: 8.88px; */
+    color: #ffffff;
 }
