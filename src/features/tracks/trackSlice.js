@@ -75,27 +75,33 @@ export const trackSlice = createSlice({
             // state.play = action.payload
             state.songs.map(song => {
                 // return song.name === action.payload.name ? song.play = true : song.play = false && song.pause = true
-                if(song.name === action.payload.name) {
-                    console.log('song')
+                if(song.name === action.payload.name && !song.playing) {
                     song.playing = true
                     song.paused = false
+                    // state.details = song
+                    new Audio(song.url).play()
+                    console.log('playme', song)
                 } else {
                     song.playing = false
                     song.paused = true
+                    new Audio(song.url).pause()
+                    console.log('pauseme', song)
                 }
                 
             })
-            console.log('play', action.payload)
-            new Audio(action.payload.url).play()
         },
         pauser: (state, action) => {
             state.pause = action.payload
         },
         setDetails: (state, action) => {
+            console.log('song', action.payload)
             state.details = action.payload
-            state.songs = state.songs.filter(song => song.name !== action.payload.name)
-            state.songs.unshift(action.payload)
-            console.log('log', state.songs)
+            state.songs.forEach((song, index) => {
+                if(song.name === action.payload.name) {
+                    console.log('song inde', song)
+                    state.songs[index] = action.payload
+                }
+            })
         },
         imager: (state, action) => {
             state.image = action.payload
