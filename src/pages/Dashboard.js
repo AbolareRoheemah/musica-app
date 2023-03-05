@@ -8,7 +8,7 @@ export default function Dashboard({receiveFunc}) {
     const [background, setBackground] = useState('#609EAF')
     const slideInfo = useSelector(state => state.tracks.songs)
 
-    const backgroundColors = ['rgb(183, 183, 221)', 'rgb(151, 123, 221)', 'rgb(100, 46, 46)', '#609EAF']
+    const backgroundColors = ['rgb(183, 183, 221)', 'rgb(151, 123, 221)', 'rgb(100, 46, 46)']
     const colorPicker = () => {
         const num = Math.round(Math.random() * backgroundColors.length)
         setBackground(backgroundColors[num])
@@ -41,14 +41,14 @@ export default function Dashboard({receiveFunc}) {
             <div className="top-charts-section">
                 <p className="top-chart-title">Top charts</p>
                 <div className="charts-ctn">
-                    <NewCharts info={{image:'chart1.png', songName: 'Golden age of 80s', artiste: 'Sean Swadder', duration: '2:34:45'}} />
-                    <NewCharts info={{image:'chart2.png', songName: 'Golden age of 80s', artiste: 'Sean Swadder', duration: '2:34:45'}} />
-                    <NewCharts info={{image:'chart3.png', songName: 'Golden age of 80s', artiste: 'Sean Swadder', duration: '2:34:45'}} />
+                    <NewCharts info={slideInfo[0]} />
+                    <NewCharts info={slideInfo[1]} />
+                    <NewCharts info={slideInfo[2]} />
                 </div>
             </div>
         </div>
         <div className="bottom-section-ctn">
-            <Slide title={'New Releases.'} info={slideInfo} receiveFunc={receiveFunc} />
+            <Slide title={'New Releases'} info={slideInfo} receiveFunc={receiveFunc} />
             <Slide title={'Popular in your area'} info={slideInfo} />
         </div>
     </div>

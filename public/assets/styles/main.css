@@ -88,6 +88,11 @@ body {
     align-items: center;
 }
 
+.avatar:hover {
+    transform: scale(1.5);
+    transition: 0.6s;
+}
+
 .avatars-ctn img{
     margin-left: -0.7vw;
 }

@@ -1,5 +1,6 @@
 .footer-ctn {
     height: auto;
+    max-height: 10vh;
     width: 100%;
     min-width: 100vw;
     display: flex;
@@ -12,8 +13,8 @@
     /* opacity: 0.95; */
     z-index: 1;
     margin-bottom: 0;
-    /* background-color: var(--dashboard-background); */
     backdrop-filter: drop-shadow(100px 100px 100px rgba(16, 16, 16, 0.51)) blur(20px);
+    /* background-color: red; */
 }
 
 .footer-avatar-ctn, .footer-controls, .volume-ctn {

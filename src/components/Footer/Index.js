@@ -8,6 +8,7 @@ export default function Index() {
   const prevTrack = useSelector(state => state.tracks.details)
   const sudoTrack = useSelector(state => state.tracks.songs[0])
   const image = !prevTrack.image ? sudoTrack.image : prevTrack.image
+  // console.log(prevTrack.playing)
   const playPause = () => {
     if(prevTrack.name) {
       dispatch(player(prevTrack))
@@ -34,7 +35,7 @@ export default function Index() {
             <img src="../../assets/images/previous.svg" alt="" />
             {/* <img src="../../assets/images/play-btn.svg" alt="" /> */}
             <div className='play-btn' onClick={() => playPause()}>
-            {(!prevTrack.name && sudoTrack.paused) || (prevTrack.name && prevTrack.paused) ? <img src="../../assets/images/play-icon.svg" alt="" /> : <img src="../../assets/images/pause.svg" alt="" />}
+            {prevTrack.paused ? <img src="../../assets/images/play-icon.svg" alt="" /> : <img src="../../assets/images/pause.svg" alt="" />}
             </div>
 
             <img src="../../assets/images/next.svg" alt="" />

@@ -1,24 +1,27 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { setDetails } from '../features/tracks/trackSlice'
+import { setDetails, player } from '../features/tracks/trackSlice'
 
 export default function Slide({title, info}) {
     const dispatch = useDispatch()
     const play = (data) => {
-        if (data.playing) {
-            new Audio(data.url).pause()
-            // const sprd = {...data}
-            // sprd.playing = true
-            // sprd.paused = false
-            // dispatch(setDetails(sprd))
-            // new Audio(data.url).play()
-        } else {
-            new Audio(data.url).play()
-            const sprd = {...data}
-            sprd.playing = true
-            sprd.paused = false
-            dispatch(setDetails(sprd))
-        }
+        dispatch(setDetails(data))
+        dispatch(player(data))
+        // if (data.playing) {
+        //     // new Audio(data.url).pause()
+        //     const sprd = {...data}
+        //     // sprd.playing = true
+        //     // sprd.paused = false
+        //     dispatch(setDetails(sprd))
+        //     dispatch(player(sprd))
+        // } else {
+        //     // new Audio(data.url).play()
+        //     const sprd = {...data}
+        //     // sprd.playing = true
+        //     // sprd.paused = false
+        //     dispatch(setDetails(sprd))
+        //     dispatch(player(sprd))
+        // }
         
     }
   return (
