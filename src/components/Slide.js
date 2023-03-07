@@ -5,8 +5,9 @@ import { setDetails, player } from '../features/tracks/trackSlice'
 export default function Slide({title, info}) {
     const dispatch = useDispatch()
     const play = (data) => {
-        dispatch(setDetails(data))
+        console.log('list', data)
         dispatch(player(data))
+        dispatch(setDetails(data))
         // if (data.playing) {
         //     // new Audio(data.url).pause()
         //     const sprd = {...data}
@@ -36,6 +37,7 @@ export default function Slide({title, info}) {
                         </div>
                         <p className="slide-img-label">{el.desc}</p>
                         <p className="slide-artiste">{el.name}</p>
+                        <audio src={el.url}></audio>
                     </div>
                 )
             })}

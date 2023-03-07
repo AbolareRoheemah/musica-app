@@ -83,22 +83,24 @@ export const trackSlice = createSlice({
     initialState,
     reducers: {
         player: (state, action) => {
-            // state.play = action.payload
+            var audioSong = new Audio(action.payload.url)
+            if(audioSong.currentTime > 0 || !audioSong.paused) {
+                audioSong.pause()
+                console.log('audio pause')
+            } else {
+                audioSong.play()
+                console.log('audio play')
+            }
             state.songs.map(song => {
-                // return song.name === action.payload.name ? song.play = true : song.play = false && song.pause = true
-                const audioSong = new Audio(song.url)
-                if(song.name === action.payload.name && !song.playing) {
-
+                if(song.name === action.payload.name && (audioSong.currentTime <= 0 || audioSong.paused)) {
+                    // var audioSong = new Audio(song.url)
                     console.log('playmegtr', song.playing)
                     song.playing = true
                     song.paused = false
-                    audioSong.play()
-                    console.log('playme', song)
-                } else if(song.name === action.payload.name && song.playing) {
+                } else {
+                    console.log('pauseme', song)
                     song.playing = false
                     song.paused = true
-                    audioSong.pause()
-                    console.log('pauseme', song)
                 }
                 
             })
@@ -111,6 +113,9 @@ export const trackSlice = createSlice({
             state.songs.forEach((song, index) => {
                 if(song.name === action.payload.name) {
                     state.songs[index] = action.payload
+                    state.songs[index].playing = false
+                    state.songs[index].paused = true
+                    console.log('clicked song', state.details, state.songs)
                 }
             })
         },

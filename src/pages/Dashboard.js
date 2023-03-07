@@ -4,23 +4,26 @@ import { useSelector } from 'react-redux';
 import NewCharts from '../components/NewCharts'
 import Slide from '../components/Slide';
 
-export default function Dashboard({receiveFunc}) {
-    const [background, setBackground] = useState('#609EAF')
+export default function Dashboard() {
+    const background = '#609EAF'
+    // const [background, setBackground] = useState('#609EAF')
     const slideInfo = useSelector(state => state.tracks.songs)
+    console.log('song', slideInfo)
 
-    const backgroundColors = ['rgb(183, 183, 221)', 'rgb(151, 123, 221)', 'rgb(100, 46, 46)']
-    const colorPicker = () => {
-        const num = Math.round(Math.random() * backgroundColors.length)
-        setBackground(backgroundColors[num])
-    }
-    useEffect(
-    () => {window.setInterval(colorPicker, 5000)}
-    )
+    // const backgroundColors = ['rgb(183, 183, 221)', 'rgb(151, 123, 221)', 'rgb(100, 46, 46)']
+    // const colorPicker = () => {
+    //     const num = Math.round(Math.random() * backgroundColors.length)
+    //     setBackground(backgroundColors[num])
+    // }
+    // useEffect(
+    // () => {window.setInterval(colorPicker, 5000)}
+    // console.log('song', slideInfo)
+    // )
 
   return (
     <div className='dashboard-ctn'>
         <div className="top-section-ctn">
-            <div className="hero-img-section" style={{backgroundColor: background}}>
+            <div className="hero-img-section" style={{backgroundColor: '#609EAF'}}>
                 <div className="hero-text-ctn">
                     <p className="curated">Curated playlist</p>
                     <p className="hero-text">R &amp; B Hits</p>
@@ -48,7 +51,7 @@ export default function Dashboard({receiveFunc}) {
             </div>
         </div>
         <div className="bottom-section-ctn">
-            <Slide title={'New Releases'} info={slideInfo} receiveFunc={receiveFunc} />
+            <Slide title={'New Releases'} info={slideInfo} />
             <Slide title={'Popular in your area'} info={slideInfo} />
         </div>
     </div>
